@@ -2,6 +2,7 @@ import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import {
 	checkData,
+	deleteContact,
 	detailContact,
 	listContact,
 	saveContact
@@ -54,6 +55,20 @@ yargs(hideBin(process.argv))
 		},
 		handler(argv) {
 			detailContact(argv.name)
+		}
+	})
+	.command({
+		command: 'delete',
+		describe: 'Delete contact by name',
+		builder: {
+			name: {
+				describe: 'name',
+				demandOption: true,
+				type: 'string'
+			}
+		},
+		handler(argv) {
+			deleteContact(argv.name)
 		}
 	})
 	.parse()

@@ -75,5 +75,36 @@ const detailContact = (name) => {
 	if (contact.email) console.log(contact.email)
 }
 
-export { checkData, saveContact, listContact, detailContact }
+const deleteContact = (name) => {
+	const contacts = loadContact()
+
+	// my algoritma
+	// const contact = contacts.find(
+	// 	(contact) => contact.name.toLowerCase() === name.toLowerCase()
+	// )
+	// const index = contacts.indexOf(contact)
+	// contacts.splice(index, 1)
+
+	// if(!contact) console.log(chalk.red.inverse.bold(`${name} not found!`))
+
+	// wpu
+	const newContacts = contacts.filter(
+		(contact) => contact.name.toLowerCase() !== name.toLowerCase()
+	)
+
+	if (contacts.length === newContacts.length) {
+		console.log(chalk.red.inverse.bold(`${name} not found!`))
+		return false
+	}
+
+	fs.writeFileSync('data/contacts.json', JSON.stringify(newContacts))
+
+	console.log(
+		chalk.green.inverse.bold(
+			`${name}'s contact data has been successfully deleted!`
+		)
+	)
+}
+
+export { checkData, saveContact, listContact, detailContact, deleteContact }
 // module.exports = { checkData, writeQuestion, saveContact } es5

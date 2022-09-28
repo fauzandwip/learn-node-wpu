@@ -1,9 +1,6 @@
 [
-	{ "name": "sandhika", "email": "sandhika@gmil.com", "noHP": "123123" },
-	{ "name": "doddy", "noHP": "123123" },
-	{ "name": "Eri", "email": "eri22@gmail.com", "noHP": "089645237231" },
-	{ "name": "Galih", "email": "galih@gmail.com", "noHP": "089642563596" },
-	{ "name": "Sindi", "email": "sindi@gmail.com", "noHP": "089642563597" },
-	{ "name": "Rani", "email": "rani@gmail.co", "noHP": "089642563597" },
-	{ "name": "Ran", "email": "ran@gmail.com", "noHP": "08974539572" }
+	{ "name": "Ran", "email": "ran@gmail.com", "noHP": "08974539572" },
+	{ "name": "Sandhika", "email": "sandhika@gmail.com", "noHP": "089674345673" },
+	{ "name": "Rani", "email": "rani@gmail.com", "noHP": "089674345433" },
+	{ "name": "Galih", "email": "galih@gmail.com", "noHP": "08967435623" }
 ]
