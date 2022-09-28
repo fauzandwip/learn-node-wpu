@@ -1,6 +1,12 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import { checkData, saveContact } from './contacts.js'
+import {
+	checkData,
+	deleteContact,
+	detailContact,
+	listContact,
+	saveContact
+} from './contacts.js'
 
 checkData()
 
@@ -19,14 +25,50 @@ yargs(hideBin(process.argv))
 				demandOption: false,
 				type: 'string'
 			},
-			noHp: {
+			noHP: {
 				describe: 'Number Phone',
 				demandOption: true,
 				type: 'string'
 			}
 		},
 		handler(argv) {
-			saveContact(argv.name, argv.email, argv.noHp)
+			saveContact(argv.name, argv.email, argv.noHP)
+		}
+	})
+	.demandCommand()
+	.command({
+		command: 'list',
+		describe: 'Display all names and phone numbers',
+		handler() {
+			listContact()
+		}
+	})
+	.command({
+		command: 'detail',
+		describe: 'Show contact details',
+		builder: {
+			name: {
+				describe: 'name',
+				demandOption: true,
+				type: 'string'
+			}
+		},
+		handler(argv) {
+			detailContact(argv.name)
+		}
+	})
+	.command({
+		command: 'delete',
+		describe: 'Delete contact by name',
+		builder: {
+			name: {
+				describe: 'name',
+				demandOption: true,
+				type: 'string'
+			}
+		},
+		handler(argv) {
+			deleteContact(argv.name)
 		}
 	})
 	.parse()
