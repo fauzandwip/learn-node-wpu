@@ -1,13 +1,6 @@
-import readline from 'readline'
 import fs from 'fs'
-
-// const coba = fs.readFileSync('coba.txt', 'utf-8')
-// console.log(coba)
-
-// const rl = readline.createInterface({
-// 	input: process.stdin,
-// 	output: process.stdout
-// })
+import chalk from 'chalk'
+import validator from 'validator'
 
 const checkData = () => {
 	const dirPath = './data'
@@ -21,30 +14,38 @@ const checkData = () => {
 	}
 }
 
-// const writeQuestion = async (question) => {
-// 	return new Promise((resolve, reject) => {
-// 		rl.question(question, (name) => {
-// 			resolve(name)
-// 		})
-// 	})
-// }
-
-const saveContact = (name, email, noHP) => {
-	const contact = { name, email, noHP }
+const saveContact = (name, email, noHp) => {
+	const contact = { name, email, noHp }
 	const file = fs.readFileSync('data/contacts.json', 'utf-8')
 	const contacts = JSON.parse(file)
 
 	// check duplicate data
 	const duplicate = contacts.find((contact) => contact.name === name)
 	if (duplicate) {
-		console.log('Registered Contact, please use other name!')
+		console.log(
+			chalk.red.inverse.bold('Registered Contact, please use other name!')
+		)
+		return false
+	}
+
+	// check email
+	if (email) {
+		if (!validator.isEmail(email)) {
+			console.log(chalk.red.inverse.bold('Invalid Email!'))
+			return false
+		}
+	}
+
+	// check noHp
+	if (!validator.isMobilePhone(noHp, 'id-ID')) {
+		console.log(chalk.red.inverse.bold('Invalid Cellphone Number!'))
 		return false
 	}
 
 	contacts.push(contact)
 	fs.writeFileSync('data/contacts.json', JSON.stringify(contacts))
 
-	console.log('Thanks for input your data')
+	console.log(chalk.green.inverse.bold('Thanks for input your data'))
 }
 
 export { checkData, saveContact }

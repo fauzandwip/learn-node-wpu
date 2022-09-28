@@ -1,5 +1,3 @@
-// import validator from 'validator'
-// import chalk from 'chalk'
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import { checkData, saveContact } from './contacts.js'
@@ -32,15 +30,3 @@ yargs(hideBin(process.argv))
 		}
 	})
 	.parse()
-
-// import { checkData, writeQuestion, saveContact } from './contacts.js'
-
-// const main = async () => {
-// 	const name = await writeQuestion('Your name : ')
-// 	const email = await writeQuestion('Your email : ')
-// 	const noHP = await writeQuestion('Your number : ')
-
-// 	saveContact(name, email, noHP)
-// }
-
-// main()

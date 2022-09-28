@@ -1,1 +1,9 @@
-[{ "name": "sandhika", "email": "sandhika@gmil.com", "noHP": "123123" }]
+[
+	{ "name": "sandhika", "email": "sandhika@gmil.com", "noHP": "123123" },
+	{ "name": "doddy", "noHP": "123123" },
+	{ "name": "Eri", "email": "eri22@gmail.com", "noHP": "089645237231" },
+	{ "name": "Galih", "email": "galih@gmail.com", "noHP": "089642563596" },
+	{ "name": "Sindi", "email": "sindi@gmail.com", "noHp": "089642563597" },
+	{ "name": "Rani", "email": "rani@gmail.co", "noHp": "089642563597" },
+	{ "name": "Ran", "email": "ran@gmail.com", "noHp": "08974539572" }
+]
